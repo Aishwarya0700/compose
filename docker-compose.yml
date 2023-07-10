@@ -1,0 +1,30 @@
+version: "3"
+ services:
+   devops:
+     build: devops/
+     ports:
+       - "8089:80"
+     volumes:
+       - "dev.volume"
+     networks:
+       - "dev.network"
+
+   python:
+     build: python/
+     ports:
+       - "8088:80"
+     volumes:
+       - "py-volume"
+     networks:
+       - "py-network"
+
+   sql:
+     build: sql/
+     ports:
+       - "8087:80"
+     volumes:
+       - "sql-volume"
+     networks:
+       - "sql-network"
+
+
